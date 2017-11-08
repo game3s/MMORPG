@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=gbk">
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    职责<br>
+    <table width="1143" height="94" cellspacing="0" cellpadding="0"
+      border="0">
+      <tbody>
+        <tr>
+          <td valign="top">
+            <ul>
+              <li>处理登录请求，分配会话令牌</li>
+              <li>处理账号角色情况（包含当前服务器情况）</li>
+              <li>验证会话令牌</li>
+              <li>其他登录平台代理<br>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    相关<br>
+    <table width="1143" height="94" cellspacing="0" cellpadding="0"
+      border="0">
+      <tbody>
+        <tr>
+          <td valign="top">
+            <ul>
+              <li>消息队列</li>
+              <li>数据库</li>
+              <li>代理服务器</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    特性<br>
+    <ul>
+      <li>HTTP/HTTPS</li>
+    </ul>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p>示例</p>
+    <p>请求验证账号+密码<br>
+      https://127.0.0.1:543/sso.auth?u=2134&amp;p=123456&amp;<br>
+      <br>
+    </p>
+    <p><br>
+    </p>
+    <p>请求当前账号游戏角色情况（带cookies）<br>
+      https://127.0.0.1:543/game.info?n=xxx&amp;</p>
+    <p>&lt;xml&gt;</p>
+    <p>&lt;g name="飞车狂飙" last_realmd="1"&gt;</p>
+    <p>&lt;!-- <br>
+    </p>
+    <p>state open close queue<br>
+      --&gt;<br>
+      &lt;a realmd="1"&nbsp; name="游戏1区" flag="" gate="127.0.0.1:564"
+      state="open"&nbsp; actors="4" /&gt;<br>
+    </p>
+    <p>&lt;/g&gt;<br>
+      &lt;/xml&gt;<br>
+    </p>
+    <p><br>
+    </p>
+    <p>请求验证回话令牌（带cookies）<br>
+      http://127.0.0.1:521/sin.verify?u=1321&amp;<br>
+      结果：<br>
+      0 正确<br>
+      1 令牌过期<br>
+      2 账号不存在<br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+      <br>
+    </p>
+    <p><br>
+      <br>
+    </p>
+    <p><br>
+      <br>
+    </p>
+  </body>
+</html>
