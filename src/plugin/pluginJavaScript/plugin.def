@@ -1,0 +1,7 @@
+LIBRARY pluginJavaScript
+EXPORTS
+	plugin_init @1
+	plugin_free @2
+	plugin_loaded @3
+
+	

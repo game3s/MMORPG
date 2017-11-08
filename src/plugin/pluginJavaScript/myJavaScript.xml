@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+哪些协议调用那个 js 文件
+注意这里都是非线程安全的
+提高速度可以将脚本保存在内存盘上
+ -->
+ 
+ <net_msg>
+ <js id="5000" src="comm/5000.js" />
+ <js id="5001" src="comm/5001.js" />
+ </net_msg>
+ 
+ 
