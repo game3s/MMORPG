@@ -74,8 +74,6 @@ public:
 	virtual void OnActive(IxObject * sender) {};							//进入活动 后
 	virtual void OnDeactive(IxObject * sender) {};							//进入不活跃状态
 
-	virtual void OnPause(IxObject * sender) {};								//暂停
-	virtual void OnResume(IxObject * sender) {};							//重新继续
 	virtual void OnDie(IxObject * sender) {};								//死亡
 	virtual void OnBrith(IxObject * sender) {};								//出生
 
@@ -98,6 +96,7 @@ public:
 	virtual void OnRemoveFromParent(IxObject * sender, IxObject* parent) {};
 
 	virtual void OnTimer(IxObject * sender, int _nId, uint32 _diff) {};		//定时器
+
 	virtual void OnCustomerEvent(IxObject * sender, int nEvent, uint64 p0 = 0, int64 p1 = 0, const void* arg = NULL) {};
 
 	virtual void OnFrameBefore(IxObject * sender) {};	//逻辑帧开始 在场景刷新开始的时候最前调用
@@ -117,11 +116,10 @@ public:
 class IxObject
 {
 public:
+	int64_t			tag;				//场景内唯一标识
 
 	int				ClassID;			//未知 角色 场景 NPC 怪物 物品
 	int			    subType;			//标记类型
-
-	int64_t			tag;				//场景内唯一标识
 
 	int				state;				//状态
 	int				flags;				//标记
@@ -130,13 +128,11 @@ public:
 	float		position[3];			//位置 x,y,z
 	float		orientation[3];		//方向 x,y,z
 
-
 	int tile_x, tile_y;					//在虚拟地图那个瓦片上
 
 	int32_t			move_flags;			//移动标记 0停止 
 	int32_t			collision_flags;	//碰撞标记
 	float			move_speed;			//移动速度
-
 
 										//基础属性
 
@@ -169,7 +165,6 @@ public:
 	time_t			ti_death;			//死亡时间
 	int16_t			ti_relive;			//重生秒数 0 死不了 -1 不重生
 
-
 	float			m_pursue_r;			//追击半径
 	float			m_attack_r;			//攻击半径
 
@@ -185,26 +180,18 @@ public:
 	virtual bool init() { return true; }
 	virtual void clear() {};
 
-
 	//子 添加 删除 查找
 	virtual IxObject* NewChild() { return NULL; };
 	virtual void RemoveChild(IxObject*) {};
 
 	virtual void RemoveChildAll() {};
-	virtual void ChildAppend(IxObject*) {};
 
 	virtual IxObject* FirstChildByName(const char* _name) { return NULL; };
 	virtual IxObject* NextChildByName(const char* _name, IxObject* _start) { return NULL; }
-	virtual IxObject* FirstChildByTag(uint64_t _tag) { return NULL; }
-	virtual IxObject* NextChildByTag(uint64_t _tag, IxObject* _start) { return NULL; }
-
-	//	virtual IxObject* FirstChildByTag32(uint32_t _tag_prefix) { return NULL; }
-	//	IxObject* createChild() { return NULL; }
-	//	IxObject* createChildWithInitFromString(std::string strObj) { return NULL; }
-	//	virtual IxObject* GetChildAt(size_t idx) { return NULL; };
+	virtual IxObject* FindChildByTag(int64_t _tag) { return NULL; }
 
 	//返回子的个数
-	virtual size_t GetChildSize() { return 0; };
+	virtual size_t ChildCount() { return 0; };
 
 	//从父亲身上移除
 	virtual void RemoveFromParent() {};
@@ -235,14 +222,11 @@ public:
 	virtual void KillTimer(int idx) {};
 
 	//////////////////////////////////////////////////////////////////////////
-
 	//获得接口的指针
 	virtual void* GetPtr(const char* _iName) { return this; };
 	inline bool IsClass(int val) { return ClassID == val; }
 
-
 	//////////////////////////////////////////////////////////////////////////
-								 
 	virtual void MsgPushBack(const void* _lpBuf, size_t _size, void* arg) { };
 
 
@@ -267,6 +251,8 @@ public:
 	virtual bool  AttribRemove(const char* kname, void* _parent = NULL) { return true; };
 	virtual void  AttribRemoveAll() {};
 
+	virtual int AttribInt32(const char* kname, void* _parent = NULL) { return NULL; };
+	virtual void AttribInt32(const char* kname, int _value, void* _parent = NULL, bool _force = true) { return 1; };
 
 	virtual const char* AttribString(const char* kname, void* _parent = NULL) { return NULL; };
 	virtual int AttribString(const char* kname, const char* _value,size_t _len,void* _parent = NULL, bool _force = true) { return 1; };
