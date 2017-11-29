@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<!-- 返回错误编号 0 没有错误 -->
+<code>0</code>
+<!-- 账号唯一编号 -->
+<acct>132341232</acct>
+<uuid>xxdfs23sf</uuid>
+<!-- 网络令牌 -->
+<token>dads7193xsfd</token>
+<!-- 应用主网关 -->
+<gate>127.0.0.1:4356</gate>
+</xml>

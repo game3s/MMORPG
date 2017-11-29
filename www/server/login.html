@@ -72,6 +72,25 @@
       &gt;xxsdfxxxsfsd&lt;/sso_auth&gt;<br>
       &lt;/xml&gt;<br>
     </p>
+    <table width="100%" cellspacing="2" cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td valign="top">&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+            &lt;!-- 返回错误编号 0 没有错误 --&gt;<br>
+            &lt;xml err="0"&gt;<br>
+            &lt;!-- 账号名 : 后面是密码 如果是游客登录的时候将存在 --&gt;<br>
+            &lt;acct&gt;132341232:123456&lt;/acct&gt;<br>
+            &lt;!-- 账号唯一编号 --&gt;<br>
+            &lt;uuid&gt;xxdfs23sf&lt;/uuid&gt;<br>
+            &lt;!-- 网络令牌 --&gt;<br>
+            &lt;token&gt;dads7193xsfd&lt;/token&gt;<br>
+            &lt;!-- 获取网关列表 --&gt;<br>
+&lt;gate&gt;http:://127.0.0.1/gate.php?n=xxx&amp;&lt;/gate&gt;<br>
+            &lt;/xml&gt;<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <p><br>
     </p>
     <p>请求当前账号游戏角色情况（带cookies）<br>
@@ -100,6 +119,11 @@
       2 账号不存在<br>
     </p>
     <p><br>
+      1）登录成功获得令牌和接入服务器<br>
+      2）使用令牌向接入服务器获得角色列表，或者直接获得默认第一个角色信息</p>
+    <p>3）（可选）获得游戏中需要的场景位置<br>
+    </p>
+    <p>4）使用角色进入到游戏中（只需要提供角色唯一编号）其他由服务器自己获得（部分游戏，提交的信息内容多一些，例如名字等）。<br>
     </p>
     <p><br>
     </p>
